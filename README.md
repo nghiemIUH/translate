@@ -9,6 +9,6 @@ https://drive.google.com/file/d/13_2P8cU13Eqao5t9CA5xxmZdJ1SA27n-/view?usp=shari
 │   ├── ckpt-5.data-00000-of-00001\
 │   ├── ckpt-5.index\
 │   ├── embedding_vector.pkl\
-│   └── vocab.pkl\
+│   └── vocab.pkl
 - Sau đó copy thư mục model vào trong thư mục app
 - Chạy lệnh: python manage.py runserver
