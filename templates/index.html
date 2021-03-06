@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" href="{% static 'img/logo.svg' %}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Translate</title>
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+        <script src="{% static 'js/index.js' %}"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="left">
+                    <img src="{% static 'img/google.png' %}" alt="" />
+                    <div>Dịch</div>
+                </div>
+            </div>
+
+            <div class="item">
+                <button class="activate">
+                    <img src="{% static 'img/translate.png' %}" alt="" /><span
+                        >Văn bản</span
+                    >
+                </button>
+                <button>
+                    <img src="{% static 'img/google-docs.png' %}" alt="" /><span
+                        >Tài liệu</span
+                    >
+                </button>
+            </div>
+
+            <div class="contain">
+                <div class="trans trans-text row activate">
+                    <div class="text-left">
+                        <div class="text-left-top">
+                            <p>Anh</p>
+                        </div>
+                        <div class="text-left-bottom">
+                            {% csrf_token %}
+                            <textarea
+                                name=""
+                                id="anh"
+                                col="2"
+                                row="10"
+                            ></textarea>
+                        </div>
+                        <div class="text-anh-bottom">
+                            <div class="media">
+                                <img
+                                    id="micro"
+                                    src="{% static 'img/microphone.png' %}"
+                                    alt=""
+                                />
+                                <img
+                                    id="volume"
+                                    src="{% static 'img/volume.png' %}"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="char">0/1000</div>
+                        </div>
+                    </div>
+
+                    <div class="text-right">
+                        <div class="text-right-top">
+                            <p>Việt</p>
+                        </div>
+                        <div class="text-right-bottom">
+                            <textarea name="" id="viet" disabled>
+Bản dịch</textarea
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trans trans-file">
+                    <h2>Chọn tài liệu</h2>
+                    <p>
+                        Tải lên tệp .doc, .docx, .odf, .pdf, .ppt, .pptx, .ps,
+                        .rtf, .txt, .xls hoặc .xlsx
+                    </p>
+                    <label for="a" class="btn-file"
+                        >Tìm tệp trên máy tính của bạn</label
+                    >
+                    <input type="file" name="" id="a" hidden />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
