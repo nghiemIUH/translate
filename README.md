@@ -10,5 +10,5 @@ https://drive.google.com/file/d/13_2P8cU13Eqao5t9CA5xxmZdJ1SA27n-/view?usp=shari
 │   ├── ckpt-5.index\
 │   ├── embedding_vector.pkl\
 │   └── vocab.pkl\
-- Sau đó copy thư mục model vào thư mục app
+- Sau đó copy thư mục model vào trthư mục app
 - Chạy lệnh: python manage.py runserver
