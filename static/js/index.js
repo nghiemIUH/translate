@@ -33,7 +33,8 @@ $(document).ready(function () {
 
     $("#anh").on("keyup keypress", function () {
         let en = $(this).val();
-        $(".char").text(`${anh.length}/1000`);
+        $(".char").text(`${en.length}/1000`);
+        console.log(en);
         if (en.trim() != "") {
             $.ajax({
                 type: "POST",
@@ -47,7 +48,7 @@ $(document).ready(function () {
                 },
             });
         } else {
-            $("#viet").val("");
+            $("#viet").val("Bản dịch");
         }
     });
 

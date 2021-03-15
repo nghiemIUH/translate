@@ -1,0 +1,6 @@
+Django
+gunicorn
+psycopg2
+uwsgi
+tensorflow==2.3
+unicodedata
