@@ -3,9 +3,8 @@ from django.shortcuts import render
 from django.views import View
 import tensorflow as tf
 import pickle
-from django.http import JsonResponse, HttpResponse
-from .translate import Transformer, predict, CustomSchedule, decode
-from django.core import serializers
+from django.http import HttpResponse
+from .translate import Transformer, predict, CustomSchedule, decode, preprocess
 # Create your views here.
 num_layers = 4
 d_model = 300
@@ -45,9 +44,13 @@ class TranslateView(View):
 
     def post(self, request):
         data = request.POST['value']
+        data = preprocess(data)
         try:
             pred = predict(data, w2i, transformer)
         except:
             return HttpResponse(json.dumps({'data': '...'}), content_type="application/json")
+
         result = decode(i2w, [i for i in pred.numpy()[0]])
+        while '_' in result:
+            result = result.replace('_', ' ')
         return HttpResponse(json.dumps({'data': result}), content_type="application/json")
