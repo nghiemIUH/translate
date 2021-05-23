@@ -2,6 +2,7 @@ import tensorflow as tf
 import numpy as np
 import pickle
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+import string
 
 with open('app/models/embedding_en.pkl', 'rb') as f:
     embedding_en = pickle.load(f)
@@ -350,3 +351,10 @@ def decode(i2w, ids):
     start = 0 if ids[0] != 1 else 1
     end = ids.index(2) if 2 in ids else None
     return ' '.join(i2w[i] for i in ids[start:end])
+
+
+def preprocess(text):
+    pun = string.punctuation
+    pun = pun.replace("'", '')
+    text = ''.join([i for i in text if i not in pun])
+    return text.lower()
