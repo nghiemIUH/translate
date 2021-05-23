@@ -48,4 +48,10 @@ $(document).ready(function () {
             $("#vietnam").val("Bản dịch");
         }
     });
+    $("#volume").click(function () {
+        let val = $("#english").val();
+        var msg = new SpeechSynthesisUtterance();
+        msg.text = val;
+        window.speechSynthesis.speak(msg);
+    });
 });
